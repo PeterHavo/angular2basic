@@ -23,7 +23,7 @@ __decorate([
 UserProfileClass = __decorate([
     core_1.Component({
         selector: 'user-profile',
-        template: "\t<div class=\"jumbotron\" *ngIf=\"user\">\n\t\t\t\t\t<h2>{{user.name}}   <small>{{user.username}} {{user.id}}</small></h2>\n\t\t\t\t\t<p>{{message}}</p>\n\t\t\t\t\t<input class=\"form-control\" [(ngModel)]=\"user.name\">\n\t\t\t\t</div>\n\n\n\t"
+        template: "\t<div class=\"jumbotron\" *ngIf=\"user\">\n\t\t\t\t\t<h2>{{user.name}}   <small>{{user.username}} {{user.id}}</small></h2>\n\t\t\t\t\t<p>{{message}}</p>\n\t\t\t\t\t<input class=\"form-control\" [(ngModel)]=\"user.name\">\n\t\t\t\t\t\n\t\t\t\t</div>\n\n\n\t"
     })
 ], UserProfileClass);
 exports.UserProfileClass = UserProfileClass;

@@ -7,6 +7,7 @@ import { User} from '../shared/models/user';
 					<h2>{{user.name}}   <small>{{user.username}} {{user.id}}</small></h2>
 					<p>{{message}}</p>
 					<input class="form-control" [(ngModel)]="user.name">
+					
 				</div>
 
 
@@ -15,6 +16,9 @@ import { User} from '../shared/models/user';
 
 export class UserProfileClass{
 
+
 	@Input() user: User; 
+	
+
 	
 }

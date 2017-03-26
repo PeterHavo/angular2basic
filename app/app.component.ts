@@ -14,15 +14,22 @@ export class AppComponent {
 		username:'havo_user'
 	}
 	users: User[] = [
-			{id:15,name:'Peter',username:'Peter_user'},
-			{id:3,name:'Rasto',username:'Rasto_user'},
-			{id:2,name:'Fero',username:'Fero_user'},
-			{id:1,name:'Palo',username:'Palo_user'}
+		  {id:15,name:'Peter',username:'Peter_user'},
+		  {id:3,name:'Rasto',username:'Rasto_user'},
+		  {id:2,name:'Fero',username:'Fero_user'},
+		  {id:1,name:'Palo',username:'Palo_user'}
 			]
-  activeUser:User; 
+  	activeUser:User; 
   
   selectUser(user){
+
   	this.activeUser = user;
   	console.log(this.activeUser);
+  }
+
+  onUserCreated(event){
+	  
+	  console.log(event);
+	  this.users.push(event.user);
   }
 }
