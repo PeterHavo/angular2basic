@@ -1,35 +1,49 @@
-import { Component } from '@angular/core';
-import { User} from './shared/models/user';
+import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { User } from './shared/models/user';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Component({
 	selector: 'my-appp',
-	templateUrl:'./app/app.component.html',
-	styleUrls: ['./app/app.component.css']
+	template:`  <div class="jumbotron text-center">
+					<h1>App is app and running </h1>
+				</div>
+				<div *ngIf = "users">
+					<div *ngFor = "let user of users">
+						<h2>{{user.first_name}}</h2>
+					</div>
+			</div>`
+	// templateUrl: './app/app.component.html',
+	// styleUrls: ['./app/app.component.css']
 })
-export class AppComponent {
-	message:string = 'hello';
-	user = {
-		id:25,
-		name:'Havo',
-		username:'havo_user'
+export class AppComponent implements OnInit {
+
+	users: User [];
+
+	constructor(private http: Http) {
+
 	}
-	users: User[] = [
-		  {id:15,name:'Peter',username:'Peter_user'},
-		  {id:3,name:'Rasto',username:'Rasto_user'},
-		  {id:2,name:'Fero',username:'Fero_user'},
-		  {id:1,name:'Palo',username:'Palo_user'}
-			]
-  	activeUser:User; 
-  
-  selectUser(user){
+	ngOnInit() {
+		//grab users from https://reqres.in/
+		this.http.get('https://reqres.in/api/users')
+			.map(res => res.json().data)
+			.subscribe(users => this.users = users );
 
-  	this.activeUser = user;
-  	console.log(this.activeUser);
-  }
+		// if I want just import rxjs/add/operator/toPromise and use promise instand of observables 
+		// this.http.get('https://reqres.in/api/users')
+		// 	.toPromise()
+		// 	.then(data => {console.log(data.json().data)})
+			
+	}
 
-  onUserCreated(event){
-	  
-	  console.log(event);
-	  this.users.push(event.user);
-  }
-}
+	
+
+	
+
+
+
+	}
+	
+	
+

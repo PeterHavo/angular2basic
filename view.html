@@ -1,0 +1,8 @@
+<div class="jumbotron text-center">
+    <h1>App is app and running </h1>
+</div>
+<div *ngIf = "users">
+    <div *ngFor = "let user of users">
+        <h2>{{user.first_name}}</h2>
+    </div>
+</div>
